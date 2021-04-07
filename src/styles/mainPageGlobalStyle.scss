@@ -1,0 +1,41 @@
+.GroupTitleTextBox{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.MuiFormControl-root{
+    width: 100%;
+    display: block;
+}
+.discardBtn{
+    border-radius: 5px;
+    border-color: #3f50b5;
+    color: #3f50b5;
+    background-color: white;
+    padding: 7px 37px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.createBtn{
+    border-radius: 3px;
+    border-color: #3f50b5;
+    padding: 7px 37px;
+    font-weight: bold;
+    color: white;
+    background-color: #3f50b5;
+    cursor: pointer;
+    margin-left: 10px;
+    border-style: hidden;
+}
+.discardBtn:focus,.createBtn:focus{
+    outline: 0;
+}
+.totalBtn{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.createBtn:active{
+   border-style: hidden !important;
+}

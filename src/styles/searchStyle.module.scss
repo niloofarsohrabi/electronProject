@@ -1,0 +1,19 @@
+.searchBox{
+    margin: 20px 14px;
+    overflow: hidden;
+    position: relative;
+}
+.searchBox input{
+    width: 99%;
+    height: 52px;
+    border-radius: 5px;
+}
+.searchIcon{
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    color: #9c9c9c;
+}
+.searchBox input::placeholder{
+    padding-left: 50px;
+}

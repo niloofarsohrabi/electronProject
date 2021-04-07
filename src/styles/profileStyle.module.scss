@@ -1,3 +1,6 @@
+.container{
+    position: relative;
+}
 .profileImg{
     width: 45px;
     height: 50px;
@@ -23,7 +26,7 @@
     font-size:14px;
 }
 .workingSide{
-    color: #afafaf;
+    color: #696969d4;
     font-size:13px
 }
 .onLineStatus{
@@ -34,7 +37,6 @@
     position: absolute;
     bottom: 0px;
     right: 0px;
-   
 }
 .offLineStatus{
     border-radius: 50px;
