@@ -13,7 +13,8 @@ export const Search = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        let userResultSearch = showContactListState && showContactListState.filter(item => (item.fullName).toLowerCase().includes(userInputForSearch));
+        let userResultSearch = showContactListState && showContactListState.filter(item => (item.fullName).toLowerCase().includes(userInputForSearch)
+        ||(item.workingSide).toLowerCase().includes(userInputForSearch));
         dispatch(searchResultAction(userResultSearch));
     }, [userInputForSearch])
 
