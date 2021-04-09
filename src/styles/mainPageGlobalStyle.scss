@@ -1,57 +1,44 @@
-$mainBlueColor:#3f50b5;
+$mainBlueColor: #3f50b5;
 
-.GroupTitleTextBox{
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
+.GroupTitleTextBox {
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
-.MuiFormControl-root{
-    width: 100%;
-    display: block;
+.MuiFormControl-root {
+  width: 100%;
+  display: block;
 }
-.discardBtn{
-    border-radius: 5px;
-    border-color: $mainBlueColor;
-    color: $mainBlueColor;
-    background-color: white;
-    padding: 7px 37px;
+.totalButton {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+  margin-bottom: 50px;
+  .MuiButton-root {
+    text-transform: none;
+    padding: 5px 40px;
+    margin-left: 15px;
+  }
+  .MuiButton-outlinedPrimary {
+    border: 1px solid $mainBlueColor;
+  }
+  .MuiButton-outlinedPrimary:hover {
+    border: 1px solid $mainBlueColor;
+  }
+  .MuiButton-label {
     font-weight: bold;
-    cursor: pointer;
+  }
 }
-.createBtn{
-    border-radius: 3px;
-    border-color: $mainBlueColor;
-    padding: 7px 37px;
-    font-weight: bold;
-    color: white;
-    background-color: $mainBlueColor;
-    cursor: pointer;
-    margin-left: 10px;
-    border-style: hidden;
+.notFound {
+  border: 3px solid $mainBlueColor;
+  border-radius: 5px;
+  width: 50%;
+  margin: 70px auto;
+  box-shadow: -1px -1px 10px 1px $mainBlueColor;
 }
-.discardBtn:focus,.createBtn:focus{
-    outline: 0;
-}
-.totalBtn{
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 10px;
-    margin-bottom: 20px;
-}
-.createBtn:active{
-   border-style: hidden !important;
-}
-.notFound{
-    border: 3px solid $mainBlueColor;
-    border-radius: 5px;
-    width: 50%;
-    margin: 70px auto;
-    box-shadow: -1px -1px 10px 1px $mainBlueColor;
-
-}
-.notFound p{
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    color: $mainBlueColor;
+.notFound p {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  color: $mainBlueColor;
 }

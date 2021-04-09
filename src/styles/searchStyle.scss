@@ -1,0 +1,32 @@
+.textFieldSearch {
+  margin: 20px 10px;
+  .MuiFormControl-root {
+    border: 1px solid #a8a8a8 !important;
+    border-bottom: 0px;
+    width: 100% !important;
+    border-radius: 5px;
+  }
+  .MuiInput-underline:hover:not(.Mui-disabled):before {
+    border-bottom: 0px;
+  }
+  .MuiInputAdornment-root {
+    height: 55px !important;
+    max-height: 55px !important;
+    color: #a8a8a8;
+    margin-left: 20px;
+  }
+  .MuiInput-underline:before {
+    border-bottom: 0px;
+    transition: none;
+  }
+  .MuiInput-underline:after {
+    border-bottom: 0px;
+    transition: none;
+  }
+  .MuiFormControl-root:focus-within {
+    outline: -webkit-focus-ring-color auto 1px;
+    outline-color: #3f50b5;
+    outline-style: auto;
+    outline-width: 1px;
+  }
+}
