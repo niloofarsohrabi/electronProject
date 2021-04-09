@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
-import { showContactListReducer } from "./showContactListReducer";
+import { searchResultReducer } from "./searchResultReducer";
+
 
 const rootReducer = combineReducers({
-    contactList:showContactListReducer
+    searchResult:searchResultReducer
 });
 export default rootReducer;

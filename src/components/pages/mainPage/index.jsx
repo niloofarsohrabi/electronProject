@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { showContactListAction } from '../../../stateManagment/actions/showContactListAction'
 import { AddMember } from '../../services/addMember'
 import { GroupAddedMembers } from '../../services/groupAddedMembers'
 import { Search } from '../../services/search'
+import { searchResultAction } from '../../../stateManagment/actions/searchResultAction'
 import TextField from '@material-ui/core/TextField'
 import profileStyle from '../../../styles/profileStyle.module.scss'
 import '../../../styles/mainPageGlobalStyle.scss'
@@ -11,13 +11,13 @@ import '../../../styles/mainPageGlobalStyle.scss'
 
 export const MainPage = () => {
 
-    const showContactListState = useSelector(state => state.contactList.contactListState);
     const dispatch = useDispatch();
+    const copyContactListState = useSelector(state => state.contactList.contactListState)
     useEffect(() => {
-        console.log(dispatch(showContactListAction()))
-        dispatch(showContactListAction())
+       dispatch(searchResultAction(copyContactListState));
+    },[copyContactListState])
+    const showSearchResult = useSelector(state => state.searchResult.searchResultState);
 
-    }, []);
     return (
         <>
             <div className="GroupTitleTextBox">
@@ -25,12 +25,12 @@ export const MainPage = () => {
             </div>
             <GroupAddedMembers />
             <Search />
-            {
-                showContactListState &&
-                showContactListState.map((item) => {
+             {
+                showSearchResult &&
+                showSearchResult.map((item) => {
                     return (
-                        <div className={profileStyle.container}>
-                            <div className={profileStyle.totalProfile} key={item.id}>
+                        <div key={item.id} className={profileStyle.container}>
+                            <div className={profileStyle.totalProfile}>
                                 <div className={profileStyle.totalImg}>
                                     <img className={profileStyle.profileImg} src={item.avatar} />
                                     {
@@ -50,6 +50,7 @@ export const MainPage = () => {
                     )
                 })
             }
+
             <div className="totalBtn">
                 <button className="discardBtn">Discard</button>
                 <button className="createBtn">Create</button>
