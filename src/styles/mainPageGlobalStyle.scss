@@ -1,3 +1,5 @@
+$mainBlueColor:#3f50b5;
+
 .GroupTitleTextBox{
     margin-top: 20px;
     margin-left: 10px;
@@ -9,8 +11,8 @@
 }
 .discardBtn{
     border-radius: 5px;
-    border-color: #3f50b5;
-    color: #3f50b5;
+    border-color: $mainBlueColor;
+    color: $mainBlueColor;
     background-color: white;
     padding: 7px 37px;
     font-weight: bold;
@@ -18,11 +20,11 @@
 }
 .createBtn{
     border-radius: 3px;
-    border-color: #3f50b5;
+    border-color: $mainBlueColor;
     padding: 7px 37px;
     font-weight: bold;
     color: white;
-    background-color: #3f50b5;
+    background-color: $mainBlueColor;
     cursor: pointer;
     margin-left: 10px;
     border-style: hidden;
@@ -38,4 +40,18 @@
 }
 .createBtn:active{
    border-style: hidden !important;
+}
+.notFound{
+    border: 3px solid $mainBlueColor;
+    border-radius: 5px;
+    width: 50%;
+    margin: 70px auto;
+    box-shadow: -1px -1px 10px 1px $mainBlueColor;
+
+}
+.notFound p{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    color: $mainBlueColor;
 }
