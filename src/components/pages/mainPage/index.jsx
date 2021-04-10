@@ -1,25 +1,50 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AddMember } from '../../services/addMember';
 import { GroupAddedMembers } from '../../services/groupAddedMembers';
 import { Search } from '../../services/search';
-import { searchResultAction } from '../../../stateManagment/actions/searchResultAction';
 import TextField from '@material-ui/core/TextField';
-import profileStyle from '../../../styles/profileStyle.module.scss';
 import Button from '@material-ui/core/Button';
+import profileStyle from '../../../styles/profileStyle.module.scss';
 import '../../../styles/mainPageGlobalStyle.scss';
+import { createGroupAction } from '../../../stateManagment/actions/createGroupAction';
 
 export const MainPage = () => {
   const dispatch = useDispatch();
-  const showSearchResult = useSelector(
-    (state) => state.searchResult.searchResultState,
-  );
+  const [searchResultState, setSearchResultState] = useState([]);
+  const [userInputForSearch, setUserInputForSearch] = useState();
   const copyContactListState = useSelector(
     (state) => state.contactList.contactListState,
   );
   useEffect(() => {
-    dispatch(searchResultAction(copyContactListState));
+    setSearchResultState(copyContactListState);
   }, [copyContactListState]);
+  const handleUserInput = (input) => {
+    setUserInputForSearch(input);
+  };
+  useEffect(() => {
+    if (userInputForSearch !== undefined) {
+      let userResultSearch =
+        copyContactListState &&
+        copyContactListState.filter((item) => {
+          return (
+            item.fullName.toLowerCase().includes(userInputForSearch) ||
+            item.workingSide.toLowerCase().includes(userInputForSearch)
+          );
+        });
+      setSearchResultState(userResultSearch);
+    }
+  }, [userInputForSearch]);
+  //-------------------------- handle Search
+  const [buttonStatus, setButtonStatus] = useState(true);
+  const handleGroupCreate = (event) => {
+    if (event.target.value === '') setButtonStatus(true);
+    else setButtonStatus(false);
+
+    let nameOfGroupEnteredByUser = event.target.value;
+    dispatch(createGroupAction(nameOfGroupEnteredByUser));
+  };
+  //-------------------------- Button Status
 
   return (
     <>
@@ -29,23 +54,27 @@ export const MainPage = () => {
           label="Group Title"
           type="text"
           variant="outlined"
+          onChange={(event) => handleGroupCreate(event)}
         />
       </div>
       <GroupAddedMembers />
-      <Search />
-
-      {showSearchResult.length == 0 ? (
+      <Search userInput={handleUserInput} />
+      {searchResultState.length == 0 ? (
         <div className="notFound">
-          <p>No results Found</p>
+          <p>Oops! No results Found</p>
         </div>
       ) : (
-        showSearchResult &&
-        showSearchResult.map((item) => {
+        searchResultState &&
+        searchResultState.map((item) => {
           return (
             <div key={item.id} className={profileStyle.container}>
               <div className={profileStyle.totalProfile}>
                 <div className={profileStyle.totalImg}>
-                  <img className={profileStyle.profileImg} src={item.avatar} />
+                  <img
+                    className={profileStyle.profileImg}
+                    src={item.avatar}
+                    alt="profileImag"
+                  />
                   {item.status === 'ONLINE' ? (
                     <div className={profileStyle.onLineStatus}></div>
                   ) : (
@@ -60,7 +89,7 @@ export const MainPage = () => {
                     {item.workingSide}
                   </div>
                 </div>
-                <AddMember />
+                <AddMember memberId={item.id} />
               </div>
               <hr />
             </div>
@@ -72,7 +101,7 @@ export const MainPage = () => {
         <Button variant="outlined" color="primary">
           Discard
         </Button>
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" disabled={buttonStatus}>
           Create
         </Button>
       </div>

@@ -1,4 +1,4 @@
-$mainBlueColor: #3f50b5;
+$mainBlueColor: #4051b5;
 
 .GroupTitleTextBox {
   margin-top: 20px;
@@ -27,6 +27,11 @@ $mainBlueColor: #3f50b5;
   }
   .MuiButton-label {
     font-weight: bold;
+  }
+  .MuiButton-contained.Mui-disabled {
+    color: rgba(255, 255, 255, 0.787);
+    box-shadow: none;
+    background-color: rgba(64, 82, 181, 0.472);
   }
 }
 .notFound {
