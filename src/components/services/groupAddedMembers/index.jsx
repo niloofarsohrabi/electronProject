@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import groupAddedMembersStyle from '../../../styles/groupAddedMembersStyles.module.scss';
 
-export const GroupAddedMembers = () => {
+export const GroupAddedMembers = ({ memberAddInGroup }) => {
+  console.log(memberAddInGroup);
+
   return (
     <>
-      <div className={groupAddedMembersStyle.showMemberBox}>
-        Selected Members will Display Here
-      </div>
+      <div></div>
     </>
   );
 };

@@ -4,19 +4,12 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import addMemberStyle from '../../../styles/addMemberStyle.module.scss';
 import { addtoobject } from '../../../stateManagment/actions/createGroupAction';
 
-export const AddMember = ({ memberId }) => {
+export const AddMember = ({ memberId, clickOnAddButton }) => {
   const contactListState = useSelector(
     (state) => state.contactList.contactListState,
   );
-  const dispatch = useDispatch();
   const handleMember = (id) => {
-    let res =
-      contactListState &&
-      contactListState.find((item) =>
-        console.log(item.id == contactListState.id),
-      );
-    //console.log(res);
-    // dispatch(addtoobject(res.fullName));
+    clickOnAddButton(id);
   };
   return (
     <>

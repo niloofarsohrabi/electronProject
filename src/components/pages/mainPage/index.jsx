@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { AddMember } from '../../services/addMember';
 import { GroupAddedMembers } from '../../services/groupAddedMembers';
 import { Search } from '../../services/search';
+import { ShowMember } from '../../services/showMember';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import profileStyle from '../../../styles/profileStyle.module.scss';
-import '../../../styles/mainPageGlobalStyle.scss';
+
 import { createGroupAction } from '../../../stateManagment/actions/createGroupAction';
 
 export const MainPage = () => {
@@ -19,6 +18,7 @@ export const MainPage = () => {
   useEffect(() => {
     setSearchResultState(copyContactListState);
   }, [copyContactListState]);
+
   const handleUserInput = (input) => {
     setUserInputForSearch(input);
   };
@@ -37,14 +37,16 @@ export const MainPage = () => {
   }, [userInputForSearch]);
   //-------------------------- handle Search
   const [buttonStatus, setButtonStatus] = useState(true);
+  const [groupTitle, setGroupTitle] = useState();
+  const [memberAdded, setmemberAdded] = useState([]);
+
   const handleGroupCreate = (event) => {
     if (event.target.value === '') setButtonStatus(true);
     else setButtonStatus(false);
-
-    let nameOfGroupEnteredByUser = event.target.value;
-    dispatch(createGroupAction(nameOfGroupEnteredByUser));
+    setGroupTitle(event.target.value);
   };
-  //-------------------------- Button Status
+
+  //-------------------------- Add Member
 
   return (
     <>
@@ -57,46 +59,9 @@ export const MainPage = () => {
           onChange={(event) => handleGroupCreate(event)}
         />
       </div>
-      <GroupAddedMembers />
+      <GroupAddedMembers memberAddInGroup={memberAdded} />
       <Search userInput={handleUserInput} />
-      {searchResultState.length == 0 ? (
-        <div className="notFound">
-          <p>Oops! No results Found</p>
-        </div>
-      ) : (
-        searchResultState &&
-        searchResultState.map((item) => {
-          return (
-            <div key={item.id} className={profileStyle.container}>
-              <div className={profileStyle.totalProfile}>
-                <div className={profileStyle.totalImg}>
-                  <img
-                    className={profileStyle.profileImg}
-                    src={item.avatar}
-                    alt="profileImag"
-                  />
-                  {item.status === 'ONLINE' ? (
-                    <div className={profileStyle.onLineStatus}></div>
-                  ) : (
-                    <div className={profileStyle.offLineStatus}></div>
-                  )}
-                </div>
-                <div className={profileStyle.styleDetail}>
-                  <div className={profileStyle.profileName}>
-                    {item.fullName}
-                  </div>
-                  <div className={profileStyle.workingSide}>
-                    {item.workingSide}
-                  </div>
-                </div>
-                <AddMember memberId={item.id} />
-              </div>
-              <hr />
-            </div>
-          );
-        })
-      )}
-
+      <ShowMember propsSearchResultState={searchResultState} />
       <div className="totalButton">
         <Button variant="outlined" color="primary">
           Discard
