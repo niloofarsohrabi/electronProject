@@ -3,7 +3,7 @@ import { AddMember } from '../../services/addMember';
 import profileStyle from '../../../styles/profileStyle.module.scss';
 import '../../../styles/showMemberGlobalStyle.scss';
 export const ShowMember = ({
-  propsSearchResultState,
+  memberList,
   whichMemberAddBtnClick,
   whichMemberDeleteBtnClick,
   memberListAdded,
@@ -18,10 +18,8 @@ export const ShowMember = ({
   const handleIsAdded = (id) => {
     let result = memberListAdded.find((item) => {
       if (item === id) {
-        console.log('true');
         return true;
       } else {
-        console.log('false');
         return false;
       }
     });
@@ -34,13 +32,13 @@ export const ShowMember = ({
 
   return (
     <div>
-      {propsSearchResultState.length == 0 ? (
+      {memberList.length == 0 ? (
         <div className="notFound">
           <p>Oops! No results Found</p>
         </div>
       ) : (
-        propsSearchResultState &&
-        propsSearchResultState.map((item) => {
+        memberList &&
+        memberList.map((item) => {
           return (
             <div key={item.id} className={profileStyle.container}>
               <div className={profileStyle.totalProfile}>
@@ -69,7 +67,6 @@ export const ShowMember = ({
                   memberId={item.id}
                   clickOnAddButton={handleClickOnAddButton}
                   clickOnDeleteButton={handleClickOnDeleteButton}
-                  memberlist={memberListAdded}
                   isAdded={handleIsAdded(item.id)}
                 />
               </div>

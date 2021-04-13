@@ -9,7 +9,7 @@ export const createGroupReducer = (state = initialState, action) => {
         groupState: [
           ...state.groupState,
           {
-            groupName: action.payload,
+            groupDetails: action.payload,
           },
         ],
       };

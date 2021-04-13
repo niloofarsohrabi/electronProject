@@ -1,8 +1,8 @@
 import actionType from './actionType';
 
-export const createGroupAction = (groupName, member) => {
+export const createGroupAction = (groupName, members) => {
   return {
     type: actionType.SHOW_GROUP,
-    payload: { groupName, member },
+    payload: { groupName, members },
   };
 };

@@ -136,7 +136,7 @@ export const MainPage = () => {
       />
       <Search userInput={handleUserInput} />
       <ShowMember
-        propsSearchResultState={searchResultState}
+        memberList={searchResultState}
         whichMemberAddBtnClick={handleWhichMemberIsClicked}
         whichMemberDeleteBtnClick={handleWhichMemberDeleteIsClick}
         memberListAdded={memberAdded}
