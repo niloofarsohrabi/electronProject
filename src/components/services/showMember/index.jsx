@@ -14,6 +14,24 @@ export const ShowMember = ({
   const handleClickOnDeleteButton = (id) => {
     whichMemberDeleteBtnClick && whichMemberDeleteBtnClick(id);
   };
+
+  const handleIsAdded = (id) => {
+    let result = memberListAdded.find((item) => {
+      if (item === id) {
+        console.log('true');
+        return true;
+      } else {
+        console.log('false');
+        return false;
+      }
+    });
+    if (result !== undefined) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <div>
       {propsSearchResultState.length == 0 ? (
@@ -30,7 +48,7 @@ export const ShowMember = ({
                   <img
                     className={profileStyle.profileImg}
                     src={item.avatar}
-                    alt="profileImag"
+                    alt="profileImage"
                   />
                   {item.status === 'ONLINE' ? (
                     <div className={profileStyle.onLineStatus}></div>
@@ -46,12 +64,13 @@ export const ShowMember = ({
                     {item.workingSide}
                   </div>
                 </div>
+
                 <AddMember
                   memberId={item.id}
-                  total={propsSearchResultState}
                   clickOnAddButton={handleClickOnAddButton}
                   clickOnDeleteButton={handleClickOnDeleteButton}
-                  testlist={memberListAdded}
+                  memberlist={memberListAdded}
+                  isAdded={handleIsAdded(item.id)}
                 />
               </div>
               <hr />

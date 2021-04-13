@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -6,38 +6,20 @@ import addMemberStyle from '../../../styles/addMemberStyle.module.scss';
 
 export const AddMember = ({
   memberId,
-  total,
-  testlist,
   clickOnAddButton,
   clickOnDeleteButton,
+  isAdded,
 }) => {
-  const [addButton, setAddButton] = useState();
-  const [deleteButton, setDeleteButton] = useState();
   const handleMember = (id) => {
     clickOnAddButton(id);
-    // if (clickOnAddButton) {
-    //   setAddButton(true);
-    // } else {
-    //   setAddButton(false);
-    // }
-    // console.log(memberId);
   };
   const handleDelete = (id) => {
     clickOnDeleteButton(id);
-    // if (clickOnDeleteButton) {
-    //   setDeleteButton(true);
-    // } else {
-    //   setDeleteButton(false);
-    // }
   };
-  let res = total.filter((item) => item.id === memberId);
 
   return (
     <>
-      {/* {total.map((item) => {
-        return <div>{item.id == testlist ? <p>hast</p> : <p>nist</p>}</div>;
-      })} */}
-      {addButton ? (
+      {isAdded && isAdded ? (
         <div>
           <button className={addMemberStyle.btnAdded}>
             <CheckCircleIcon fontSize="small" />

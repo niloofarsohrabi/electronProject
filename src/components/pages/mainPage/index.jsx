@@ -82,6 +82,7 @@ export const MainPage = () => {
       dispatch(createGroupAction(groupTitle, memberWereAddedInGroup));
       setAlert(true);
       setmemberAdded([]);
+      setGroupTitle('');
     } else {
       setModal(true);
     }
@@ -107,7 +108,7 @@ export const MainPage = () => {
   //-------------------------- Remove Button
   const handleDiscardButton = () => {
     setmemberAdded([]);
-    setGroupTitle(undefined);
+    setGroupTitle('');
   };
   //-------------------------- discard button
   return (
@@ -125,6 +126,7 @@ export const MainPage = () => {
           label="Group Title"
           type="text"
           variant="outlined"
+          value={groupTitle}
           onChange={(event) => handleGroupCreate(event)}
         />
       </div>
