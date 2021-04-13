@@ -32,7 +32,7 @@ export const ShowMember = ({
 
   return (
     <div>
-      {memberList.length == 0 ? (
+      {memberList.length === 0 ? (
         <div className="notFound">
           <p>Oops! No results Found</p>
         </div>

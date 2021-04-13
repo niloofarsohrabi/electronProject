@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { GroupAddedMembers } from '../../services/groupAddedMembers';
 import { Search } from '../../services/search';
@@ -38,6 +38,8 @@ export const MainPage = () => {
     }
   }, [userInputForSearch]);
   //-------------------------- handle Search
+
+  //-------------------------- Add Member
   const [buttonStatus, setButtonStatus] = useState(true);
   const [modal, setModal] = useState();
   const [alert, setAlert] = useState();
@@ -51,6 +53,7 @@ export const MainPage = () => {
     setGroupTitle(event.target.value);
   };
   const handleWhichMemberIsClicked = (memberIdFromClickAddButton) => {
+    // console.log(memberIdFromClickAddButton);
     if (memberAdded.includes(memberIdFromClickAddButton)) {
       console.log('The User Is Added');
     } else {
@@ -75,6 +78,8 @@ export const MainPage = () => {
     }
   };
   //-------------------------- Add Member
+
+  //-------------------------- Create Button
   //const state = useSelector((state) => console.log(state));
 
   const handleCreateButton = () => {
@@ -94,23 +99,39 @@ export const MainPage = () => {
     setAlert(false);
   };
   //-------------------------- Create Button
+
+  //-------------------------- Remove Button
   const handleWhichMemberDeleteIsClick = (memberIdFromDeleteBtn) => {
     if (memberAdded.includes(memberIdFromDeleteBtn)) {
-      setmemberAdded((prevState) => {
-        if (prevState) {
-          let result = [...prevState];
-          result.pop(memberIdFromDeleteBtn);
-          return result;
-        }
-      });
+      let result = memberAdded.filter((item) => item !== memberIdFromDeleteBtn);
+      //console.log(res);
+      setmemberAdded(result);
     }
   };
+
   //-------------------------- Remove Button
+
+  //-------------------------- discard button
   const handleDiscardButton = () => {
     setmemberAdded([]);
     setGroupTitle('');
   };
   //-------------------------- discard button
+  //---------------------------
+
+  // const [size, setSize] = useState([0, 0]);
+  // useLayoutEffect(() => {
+  //   function updateSize() {
+  //     setSize([window.innerWidth, window.innerHeight]);
+  //   }
+  //   window.addEventListener('resize', updateSize);
+  //   updateSize();
+  //   return () => window.removeEventListener('resize', updateSize);
+  // }, []);
+  // console.log(size);
+
+  //---------------------------
+
   return (
     <>
       <div className="GroupTitleTextBox">

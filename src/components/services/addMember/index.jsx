@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -11,9 +11,11 @@ export const AddMember = ({
   isAdded,
 }) => {
   const handleMember = (id) => {
+    // console.log(id);
     clickOnAddButton(id);
   };
   const handleDelete = (id) => {
+    // console.log(id);
     clickOnDeleteButton(id);
   };
 
