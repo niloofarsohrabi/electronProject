@@ -6,10 +6,7 @@ import nonkosiJoyiAvatar from '../../assets/images/contactAvatar/nonkosiJoyiAvat
 import oluchiMaziAvatar from '../../assets/images/contactAvatar/oluchiMaziAvatar.jpg';
 
 const initialState = {
-  createGroupState: {
-    groupName: '',
-    members: [],
-  },
+  groupState: [],
 
   contactListState: [
     {

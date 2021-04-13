@@ -1,11 +1,21 @@
 import React from 'react';
 import { AddMember } from '../../services/addMember';
 import profileStyle from '../../../styles/profileStyle.module.scss';
-import '../../../styles/mainPageGlobalStyle.scss';
-export const ShowMember = ({ propsSearchResultState }) => {
+import '../../../styles/showMemberGlobalStyle.scss';
+export const ShowMember = ({
+  propsSearchResultState,
+  whichMemberAddBtnClick,
+  whichMemberDeleteBtnClick,
+  memberListAdded,
+}) => {
+  const handleClickOnAddButton = (id) => {
+    whichMemberAddBtnClick && whichMemberAddBtnClick(id);
+  };
+  const handleClickOnDeleteButton = (id) => {
+    whichMemberDeleteBtnClick && whichMemberDeleteBtnClick(id);
+  };
   return (
     <div>
-      {/* {' '} */}
       {propsSearchResultState.length == 0 ? (
         <div className="notFound">
           <p>Oops! No results Found</p>
@@ -36,7 +46,13 @@ export const ShowMember = ({ propsSearchResultState }) => {
                     {item.workingSide}
                   </div>
                 </div>
-                <AddMember />
+                <AddMember
+                  memberId={item.id}
+                  total={propsSearchResultState}
+                  clickOnAddButton={handleClickOnAddButton}
+                  clickOnDeleteButton={handleClickOnDeleteButton}
+                  testlist={memberListAdded}
+                />
               </div>
               <hr />
             </div>

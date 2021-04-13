@@ -6,7 +6,12 @@ export const createGroupReducer = (state = initialState, action) => {
     case actionType.SHOW_GROUP:
       return {
         ...state,
-        createGroupState: action.payload,
+        groupState: [
+          ...state.groupState,
+          {
+            groupName: action.payload,
+          },
+        ],
       };
 
     default:

@@ -13,7 +13,7 @@ export const Search = ({ userInput }) => {
       <div className="textFieldSearch">
         <TextField
           id="input-with-icon-textfield"
-          placeholder="Search Member By Name Or Working Side"
+          placeholder="Search member by name or working side"
           onChange={(event) => handleInputOfSearch(event)}
           InputProps={{
             startAdornment: (
