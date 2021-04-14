@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { GroupAddedMembers } from '../../services/groupAddedMembers';
 import { Search } from '../../services/search';
@@ -45,7 +45,6 @@ export const MainPage = () => {
   const [alert, setAlert] = useState();
   const [groupTitle, setGroupTitle] = useState();
   const [memberAdded, setmemberAdded] = useState([]);
-  let memberWereAddedInGroup = [];
 
   const handleGroupCreate = (event) => {
     if (event.target.value === '') setButtonStatus(true);
@@ -66,16 +65,18 @@ export const MainPage = () => {
       });
     }
   };
-  const handleAddMember = () => {
+  const getAddedMembers = () => {
+    const addedMembers = [];
     if (memberAdded !== undefined) {
       for (let i = 0; i < copyContactListState.length; i++) {
         for (let j = 0; j < memberAdded.length; j++) {
           if (copyContactListState[i].id === memberAdded[j]) {
-            memberWereAddedInGroup.push(copyContactListState[i]);
+            addedMembers.push(copyContactListState[i]);
           }
         }
       }
     }
+    return addedMembers;
   };
   //-------------------------- Add Member
 
@@ -84,7 +85,7 @@ export const MainPage = () => {
 
   const handleCreateButton = () => {
     if (memberAdded.length >= 2) {
-      dispatch(createGroupAction(groupTitle, memberWereAddedInGroup));
+      dispatch(createGroupAction(groupTitle, getAddedMembers()));
       setAlert(true);
       setmemberAdded([]);
       setGroupTitle('');
@@ -117,20 +118,6 @@ export const MainPage = () => {
     setGroupTitle('');
   };
   //-------------------------- discard button
-  //---------------------------
-
-  // const [size, setSize] = useState([0, 0]);
-  // useLayoutEffect(() => {
-  //   function updateSize() {
-  //     setSize([window.innerWidth, window.innerHeight]);
-  //   }
-  //   window.addEventListener('resize', updateSize);
-  //   updateSize();
-  //   return () => window.removeEventListener('resize', updateSize);
-  // }, []);
-  // console.log(size);
-
-  //---------------------------
 
   return (
     <>
@@ -147,14 +134,12 @@ export const MainPage = () => {
           label="Group Title"
           type="text"
           variant="outlined"
+          autoComplete="off"
           value={groupTitle}
           onChange={(event) => handleGroupCreate(event)}
         />
       </div>
-      <GroupAddedMembers
-        memberSelected={handleAddMember()}
-        memberAddedToGroupByUser={memberWereAddedInGroup}
-      />
+      <GroupAddedMembers membersToShow={getAddedMembers()} />
       <Search userInput={handleUserInput} />
       <ShowMember
         memberList={searchResultState}

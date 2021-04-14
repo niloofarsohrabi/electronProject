@@ -14,6 +14,7 @@ export const Search = ({ userInput }) => {
         <TextField
           id="input-with-icon-textfield"
           placeholder="Search member by name or working side"
+          autoComplete="off"
           onChange={(event) => handleInputOfSearch(event)}
           InputProps={{
             startAdornment: (

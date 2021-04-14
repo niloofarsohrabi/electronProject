@@ -2,6 +2,7 @@ import React from 'react';
 import { AddMember } from '../../services/addMember';
 import profileStyle from '../../../styles/profileStyle.module.scss';
 import '../../../styles/showMemberGlobalStyle.scss';
+
 export const ShowMember = ({
   memberList,
   whichMemberAddBtnClick,

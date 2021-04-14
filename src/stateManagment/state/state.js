@@ -4,6 +4,10 @@ import fukuyoKazutoshiAvatar from '../../assets/images/contactAvatar/fukuyoKazut
 import iiyaVasinAvatar from '../../assets/images/contactAvatar/iiyaVasinAvatar.jpg';
 import nonkosiJoyiAvatar from '../../assets/images/contactAvatar/nonkosiJoyiAvatar.jpg';
 import oluchiMaziAvatar from '../../assets/images/contactAvatar/oluchiMaziAvatar.jpg';
+import ameliaBoondAvatar from '../../assets/images/contactAvatar/ameliaBoondAvatar.jpg';
+import emmaGellerAvatar from '../../assets/images/contactAvatar/emmaGellerAvatar.jpg';
+import simonWalkerAvatar from '../../assets/images/contactAvatar/simonWalkerAvatar.jpg';
+import johnHarrisAvatar from '../../assets/images/contactAvatar/johnHarrisAvatar.jpg';
 
 const initialState = {
   groupState: [],
@@ -46,10 +50,38 @@ const initialState = {
     },
     {
       id: 6,
-      fullName: 'Oluchi MAzi',
+      fullName: 'Oluchi Mazi',
       workingSide: 'Graphic Designer',
       avatar: oluchiMaziAvatar,
       status: 'OFFLINE',
+    },
+    {
+      id: 7,
+      fullName: 'amelia Boond',
+      workingSide: 'Manager HR',
+      avatar: ameliaBoondAvatar,
+      status: 'ONLINE',
+    },
+    {
+      id: 8,
+      fullName: 'Emma Geller',
+      workingSide: 'Back-End Developer',
+      avatar: emmaGellerAvatar,
+      status: 'OFFLINE',
+    },
+    {
+      id: 9,
+      fullName: 'Simon Walker',
+      workingSide: 'ios Developer',
+      avatar: simonWalkerAvatar,
+      status: 'OFFLINE',
+    },
+    {
+      id: 10,
+      fullName: 'john Harris',
+      workingSide: 'Digital Marketing Specialist',
+      avatar: johnHarrisAvatar,
+      status: 'ONLINE',
     },
   ],
 };

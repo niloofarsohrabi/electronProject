@@ -1,49 +1,48 @@
-.container{
-    position: relative;
+.container {
+  position: relative;
 }
-.profileImg{
-    width: 45px;
-    height: 50px;
-    border-radius: 2px;
+.profileImg {
+  width: 45px;
+  height: 50px;
+  border-radius: 2px;
 }
-.totalImg{
-    position: relative;
+.totalImg {
+  position: relative;
 }
-.totalProfile{
-    display: flex;
-    flex-direction: row;  
-    margin: 10px;    
-    
+.totalProfile {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
 }
-.styleDetail{
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    margin-top: 5px;
+.styleDetail {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 5px;
 }
-.profileName{
-    font-weight: bold;
-    font-size:14px;
+.profileName {
+  font-weight: bold;
+  font-size: 14px;
 }
-.workingSide{
-    color: #696969d4;
-    font-size:13px
+.workingSide {
+  color: #696969d4;
+  font-size: 13px;
 }
-.onLineStatus{
-    border-radius: 50px;
-    width: 10px;
-    height: 10px;
-    background-color:#0db40d;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
+.onLineStatus {
+  border-radius: 50px;
+  width: 10px;
+  height: 10px;
+  background-color: #0db40d;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }
-.offLineStatus{
-    border-radius: 50px;
-    width: 10px;
-    height: 10px;
-    background-color:gray;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
+.offLineStatus {
+  border-radius: 50px;
+  width: 10px;
+  height: 10px;
+  background-color: gray;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }

@@ -13,12 +13,12 @@
 }
 .profileImgAndName {
   padding-right: 20px;
+  width: 80px;
 }
 .profileImage {
   position: relative;
-  width: 60px;
-  height: 50px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 .profileImage img {
   width: 50px;
@@ -30,7 +30,7 @@
 .checkIcon {
   position: absolute;
   top: 28px;
-  right: 0;
+  right: 5px;
 }
 .checkIcon svg {
   color: #20d600;
@@ -38,4 +38,23 @@
 }
 .profileName {
   font-size: 14px;
+  text-align: center;
+}
+.extraNumber {
+  max-width: 60px;
+  width: 70px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50px;
+  border: 2px solid #3f50b5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-size: 24px;
+    color: #3f50b5;
+    position: relative;
+    bottom: 3px;
+  }
 }
