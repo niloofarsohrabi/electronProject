@@ -52,7 +52,6 @@ export const MainPage = () => {
     setGroupTitle(event.target.value);
   };
   const handleWhichMemberIsClicked = (memberIdFromClickAddButton) => {
-    // console.log(memberIdFromClickAddButton);
     if (memberAdded.includes(memberIdFromClickAddButton)) {
       console.log('The User Is Added');
     } else {
@@ -81,7 +80,7 @@ export const MainPage = () => {
   //-------------------------- Add Member
 
   //-------------------------- Create Button
-  //const state = useSelector((state) => console.log(state));
+  const state = useSelector((state) => console.log(state));
 
   const handleCreateButton = () => {
     if (memberAdded.length >= 2) {
@@ -114,6 +113,7 @@ export const MainPage = () => {
 
   //-------------------------- discard button
   const handleDiscardButton = () => {
+    setButtonStatus(true);
     setmemberAdded([]);
     setGroupTitle('');
   };
