@@ -80,7 +80,7 @@ export const MainPage = () => {
   //-------------------------- Add Member
 
   //-------------------------- Create Button
-  //const state = useSelector((state) => console.log(state));
+  // const state = useSelector((state) => console.log(state));
 
   const handleCreateButton = () => {
     if (memberAdded.length >= 2) {
