@@ -39,10 +39,14 @@
 .profileName {
   font-size: 14px;
   text-align: center;
+  //---------------
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .extraNumber {
-  max-width: 60px;
-  width: 70px;
+  min-width: 60px;
+  width: 60px;
   height: 60px;
   background-color: white;
   border-radius: 50px;
@@ -52,7 +56,7 @@
   align-items: center;
 
   span {
-    font-size: 24px;
+    font-size: 20px;
     color: #3f50b5;
     position: relative;
     bottom: 3px;

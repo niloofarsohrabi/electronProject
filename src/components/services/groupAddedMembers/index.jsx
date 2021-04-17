@@ -18,11 +18,11 @@ export const GroupAddedMembers = ({ membersToShow }) => {
   }, []);
 
   useEffect(() => {
-    let numberOfElementFitOnPage = Math.floor(width / (80 + 20));
+    let numberOfElementFitOnPage = Math.floor(width / (80 + 20) - 1);
     // console.log(numberOfElementFitOnPage);
     if (membersToShow.length > numberOfElementFitOnPage) {
       let extraNumber = membersToShow.length - numberOfElementFitOnPage;
-      //console.log(extraNumber);
+      //  console.log(extraNumber);
       setExtraNumberOfMemberState(extraNumber);
     }
     if (numberOfElementFitOnPage > membersToShow.length) {
