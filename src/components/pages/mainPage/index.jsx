@@ -105,7 +105,6 @@ export const MainPage = () => {
   const handleWhichMemberDeleteIsClick = (memberIdFromDeleteBtn) => {
     if (memberAdded.includes(memberIdFromDeleteBtn)) {
       let result = memberAdded.filter((item) => item !== memberIdFromDeleteBtn);
-      //console.log(res);
       setmemberAdded(result);
     }
   };

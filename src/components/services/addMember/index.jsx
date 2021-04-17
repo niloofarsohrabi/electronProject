@@ -11,11 +11,9 @@ export const AddMember = ({
   isAdded,
 }) => {
   const handleMember = (id) => {
-    // console.log(id);
     clickOnAddButton(id);
   };
   const handleDelete = (id) => {
-    // console.log(id);
     clickOnDeleteButton(id);
   };
 

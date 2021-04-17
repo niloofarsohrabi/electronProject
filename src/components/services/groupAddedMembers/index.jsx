@@ -13,7 +13,6 @@ export const GroupAddedMembers = ({ membersToShow }) => {
     };
     window.addEventListener('resize', updateSize);
     updateSize();
-
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
