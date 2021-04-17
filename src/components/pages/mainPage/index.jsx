@@ -85,6 +85,7 @@ export const MainPage = () => {
   const handleCreateButton = () => {
     if (memberAdded.length >= 2) {
       dispatch(createGroupAction(groupTitle, getAddedMembers()));
+      setButtonStatus(true);
       setAlert(true);
       setmemberAdded([]);
       setGroupTitle('');
